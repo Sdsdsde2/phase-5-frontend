@@ -1,10 +1,9 @@
 import React from 'react'
 
-const Dash = () => {
+const Dash = (props) => {
     return (
         <div>
-            <h1>Dashboard</h1>
-            <h1>Dashboard</h1>
+            <h1>Your Account Dashboard</h1>
         </div>
     )
 }

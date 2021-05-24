@@ -1,0 +1,28 @@
+.header {
+  padding: 1px;
+  background: #E12B38;
+  font-size:20px;
+}
+
+.headerMain {
+  text-decoration: none;
+  background: #E12B38;
+  color: white;
+  text-align: left;
+  padding-left: 25px;
+}
+
+.headerLink {
+  text-decoration: none;
+  background: #E12B38;
+  color: white;
+  text-align: right;
+}
+
+.linkStyle {
+  text-decoration: none;
+  background: #E12B38;
+  color: white;
+  text-align: right;
+  padding: 15px;
+}
