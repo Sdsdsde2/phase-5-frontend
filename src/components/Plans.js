@@ -12,8 +12,21 @@ export default class Plans extends Component {
         this.props.history.push("/credits")
     }
 
-    handleSubscription() {
+    handleSubscription = () => {
+        var today = new Date();
 
+        axios.post("http://localhost:3000/subscriptions", {
+            user_id: this.props.user.id,
+            day: today.getDate(),
+            hour: today.getHours(),
+            minute: today.getMinutes(),
+            status: "active"
+        },
+        {withCredentials: true})
+        .then(resp => {})
+
+        this.props.user.credits -= 1000
+        this.props.history.push("/plans")
     }
 
     checkCredits = () => {

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import Registration from './auth/Registration'
 import axios from 'axios'
-import Login from './auth/Login'
 
 export default class Home extends Component {
     constructor(props) {

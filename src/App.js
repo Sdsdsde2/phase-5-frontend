@@ -87,7 +87,7 @@ export default class App extends Component {
           <BrowserRouter>
           <div className="header">
                 <h1 className="headerMain">
-                    <Link to="/" className="headerMain">Dashboard</Link>
+                    <Link to="/" className="headerMain">E.R.V.M</Link>
                 </h1>
                 <h3>
                     <div className="headerLink">
