@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import Registration from './auth/Registration'
 import axios from 'axios'
-import Login from './auth/Login'
 
-export default class Home extends Component {
+export default class User extends Component {
     constructor(props) {
         super(props);
 
-        this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
     }
 
@@ -23,6 +21,8 @@ export default class Home extends Component {
         .catch(error => {
             console.log("logout error", error);
         });
+
+        this.props.history.push("/login");
     }
 
     logoutButton() {
@@ -33,7 +33,10 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Home</h1>
+                <h1>Your Profile Page</h1>
+                <h3>Name: {this.props.user.name}</h3>
+                <h3>Username: {this.props.user.username}</h3>
+                <h3>Credits: {this.props.user.credits}</h3>
                 {this.logoutButton()}
             </div>
         )

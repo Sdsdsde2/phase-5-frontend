@@ -5,6 +5,11 @@ import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
 import axios from "axios";
 import Home from './components/Home';
 import Dash from './components/Dash';
+import Register from './components/Register'
+import Login from './components/Login'
+import Credits from './components/Credits'
+import Plans from './components/Plans'
+import Users from './components/User'
 
 export default class App extends Component {
   constructor() {
@@ -61,6 +66,20 @@ export default class App extends Component {
     });
   }
 
+  renderRegisterRoute() {
+      if (this.state.loggedInStatus === "NOT_LOGGED_IN")
+        return <Link to="/register" className="linkStyle">Register</Link>
+      else if (this.state.loggedInStatus === "LOGGED_IN")
+        return <Link to="/dash" className="linkStyle">Dashboard</Link>
+  }
+
+  renderLoginRoute() {
+    if (this.state.loggedInStatus === "NOT_LOGGED_IN")
+      return <Link to="/login" className="linkStyle">Login</Link>
+    else if (this.state.loggedInStatus === "LOGGED_IN")
+      return <Link to="/user" className="linkStyle">User</Link>
+  }
+
   render() {
   return (
       <div className="App">
@@ -68,12 +87,12 @@ export default class App extends Component {
           <BrowserRouter>
           <div className="header">
                 <h1 className="headerMain">
-                    <Link to="/" className="headerMain" >Dashboard</Link>
+                    <Link to="/" className="headerMain">Dashboard</Link>
                 </h1>
                 <h3>
                     <div className="headerLink">
-                        <Link to="/register" className="linkStyle">Register</Link>
-                        <Link to="/login" className="linkStyle">Login</Link>
+                        {this.renderRegisterRoute()}
+                        {this.renderLoginRoute()}
                         <Link to="/plans" className="linkStyle">Plans</Link>
                         <Link to="/credits" className="linkStyle">Credits</Link>
                     </div>
@@ -81,22 +100,25 @@ export default class App extends Component {
             </div>
             <Switch>
               <Route exact path={"/"} render={props => (
-                <Home {... props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />
+                <Home />
               )} />
               <Route exact path={"/dash"} render={props => (
                 <Dash {... props} loggedInStatus={this.state.loggedInStatus} />
               )} />
-              <Route path="/register">
-                  <Home />
-              </Route>
-              <Route path="/login">
-                  <Dash />
-              </Route>
-              <Route path="/cart">
-                  <Dash />
-              </Route>
-              <Route path="/">
-                  <Home />
+              <Route path="/register" render={props => (
+                <Register {... props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />
+              )} />
+              <Route path="/login" render={props => (
+                <Login {... props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />
+              )} />
+              <Route path="/user" render={props => (
+                <Users {... props} user={this.state.user} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />
+              )} />
+              <Route path="/plans" render={props => (
+                <Plans {... props} user={this.state.user} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />
+              )} />
+              <Route path="/credits">
+                  <Credits user={this.state.user} />
               </Route>
             </Switch>
           </BrowserRouter>

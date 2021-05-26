@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import Registration from './auth/Registration'
-import axios from 'axios'
 import Login from './auth/Login'
+import axios from 'axios'
 
-export default class Home extends Component {
+export default class LoginPage extends Component {
     constructor(props) {
         super(props);
 
@@ -13,7 +12,7 @@ export default class Home extends Component {
 
     handleSuccessfulAuth(data) {
         this.props.handleLogin(data);
-        this.props.history.push("/dash");
+        this.props.history.push("/user");
     }
 
     handleLogoutClick() {
@@ -33,8 +32,9 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Home</h1>
+                <h1>Login</h1>
                 {this.logoutButton()}
+                <Login handleSuccessfulAuth={this.handleSuccessfulAuth} />
             </div>
         )
     }

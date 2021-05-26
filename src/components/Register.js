@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import Registration from './auth/Registration'
 import axios from 'axios'
-import Login from './auth/Login'
 
-export default class Home extends Component {
+export default class Register extends Component {
     constructor(props) {
         super(props);
 
@@ -33,8 +32,8 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Home</h1>
-                {this.logoutButton()}
+                <h1>Register</h1>
+                <Registration handleSuccessfulAuth={this.handleSuccessfulAuth} />
             </div>
         )
     }
