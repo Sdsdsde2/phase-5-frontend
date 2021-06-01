@@ -23,8 +23,7 @@ export default class Plans extends Component {
             status: "active"
         },
         {withCredentials: true})
-        .then(resp => {})
-
+        
         this.props.user.credits -= 1000
         this.props.history.push("/plans")
     }

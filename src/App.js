@@ -10,6 +10,8 @@ import Login from './components/Login'
 import Credits from './components/Credits'
 import Plans from './components/Plans'
 import Users from './components/User'
+import Reviews from './components/Reviews'
+import CreateReview from './components/CreateReview';
 
 export default class App extends Component {
   constructor() {
@@ -17,7 +19,8 @@ export default class App extends Component {
 
     this.state = {
       loggedInStatus: "NOT_LOGGED_IN",
-      user: {}
+      user: {},
+      reviews: []
     }
 
     this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
@@ -50,6 +53,7 @@ export default class App extends Component {
 
   componentDidMount() {
     this.checkLoginStatus();
+    this.getReviews();
   }
 
   handleLogin(data) {
@@ -80,6 +84,13 @@ export default class App extends Component {
       return <Link to="/user" className="linkStyle">User</Link>
   }
 
+  getReviews = () => {
+    axios.get("http://localhost:3000/reviews")
+    .then(resp => {
+        return this.setState({reviews: resp.data})
+    })
+  }
+
   render() {
   return (
       <div className="App">
@@ -95,6 +106,7 @@ export default class App extends Component {
                         {this.renderLoginRoute()}
                         <Link to="/plans" className="linkStyle">Plans</Link>
                         <Link to="/credits" className="linkStyle">Credits</Link>
+                        <Link to="/reviews" className="linkStyle">Reviews</Link>
                     </div>
                 </h3>
             </div>
@@ -120,6 +132,12 @@ export default class App extends Component {
               <Route path="/credits">
                   <Credits user={this.state.user} />
               </Route>
+              <Route path="/reviews">
+                  <Reviews user={this.state.user} reviews={this.state.reviews} getReviews={this.getReviews} />
+              </Route>
+              <Route path="/createreview" render={props => (
+                <CreateReview {... props} user={this.state.user} />
+              )} />
             </Switch>
           </BrowserRouter>
         </header>

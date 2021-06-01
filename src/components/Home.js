@@ -32,7 +32,12 @@ export default class Home extends Component {
         return (
             <div>
                 <h1>Home</h1>
-                {this.logoutButton()}
+                <h4>Welcome to "Easy Remote Virtual Machine".</h4>
+                <h4>If you are new here you can make an account.</h4>
+                <h4>If you have been here before you can press the Login button and sign in.</h4>
+                <h4>Once signed in you can purchase credits which can be used on our VM services.</h4>
+                <h4>Please contact fakeemail@host.com if you have any questions / issues.</h4>
+                <h4>Thank you for using our service!</h4>
             </div>
         )
     }

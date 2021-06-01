@@ -12,3 +12,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.subsCard {
+  text-align: center;
+  color: white;
+  background: #43464B;
+  border: rgb(0, 0, 0) solid 2px;
+  width: 25rem;
+  height: 30rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  border-radius: 5px;
+}
+
+.cardTitle {
+  text-align: center;
+  color: white;
+  background-color: #E12B38;
+  border-bottom: rgb(0, 0, 0) solid 2px;
+  border-radius: 5px;
+  font-size:18px;
+}
+
+.cardButton {
+  background-color: #E12B38;
+  border: rgb(0, 0, 0) solid 2px;
+  border-radius: 5px;
+  height: 2rem;
+  width: max-content;
+  color: whitesmoke;
+  font-size: 18px;
+  justify-self: center;
+}
+
+.reviewText {
+  font-size:15px;
+}
