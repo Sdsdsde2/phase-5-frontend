@@ -51,7 +51,6 @@ export default class Registration extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
-
                     <input 
                         type="username" 
                         name="username" 
@@ -60,7 +59,6 @@ export default class Registration extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
-
                     <input 
                         type="password" 
                         name="password" 
@@ -69,7 +67,6 @@ export default class Registration extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
-
                     <input 
                         type="password" 
                         name="password_confirmation" 
@@ -78,7 +75,6 @@ export default class Registration extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
-
                     <button type="submit">Register</button>
                 </form>
             </div>

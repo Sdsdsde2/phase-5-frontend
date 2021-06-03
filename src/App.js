@@ -30,7 +30,7 @@ export default class App extends Component {
 
   handleSuccessfulAuth(data) {
     this.props.handleLogin(data);
-    this.props.history.push("/dash");
+    this.props.history.push("/user");
   }
 
   checkLoginStatus() {

@@ -44,7 +44,6 @@ export default class Login extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
-
                     <input 
                         type="password" 
                         name="password" 
@@ -53,7 +52,6 @@ export default class Login extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
-
                     <button type="submit">Login</button>
                 </form>
             </div>
